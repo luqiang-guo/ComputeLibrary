@@ -40,6 +40,7 @@
 #ifdef CYCLE_PROFILING
 #include "profiler.hpp"
 #endif
+#include <stdio.h>
 
 // Some macros used to decide how much working space to allocate.
 // Round allocations up to the next cache line.
@@ -92,7 +93,7 @@ void kernel_and_merge<true, false, Nothing>::run(
 #ifdef CYCLE_PROFILING
         auto p=prof.ScopedProfiler(PROFILE_KERNEL, (strategy::out_height() * bblocks * strategy::out_width() * kern_k));
 #endif
-
+        printf("ldc=%d, kern_k=%d, m_0=%d, m_max=%d, n_0=%d, n_max=%d\n", ldc, kern_k, m_0, m_max, n_0, n_max);
         strat.kernel(a_ptr, b_panel, c_panel, 1, bblocks, kern_k);
     }
 

@@ -38,8 +38,33 @@
 // - this construction allows the output loop to proceed in either order.
 
 namespace arm_gemm {
-
+#include <stdio.h>
 void a64_sgemm_asimd_8x12(const float *Apanel, const float *Bpanel, float *Cpanel, int ablocks, int bblocks, int K) {
+    // printf("----------------------------------------------------------------- \n");
+    printf("%f, %f, %f, %f, %f, %f, %f, %f\n", Apanel[0], Apanel[1], Apanel[2], Apanel[3], Apanel[4], Apanel[5], Apanel[6], Apanel[7]);
+    printf("%f, %f, %f, %f, %f, %f, %f, %f\n", Bpanel[0], Bpanel[1], Bpanel[2], Bpanel[3], Bpanel[4], Bpanel[5], Bpanel[6], Bpanel[7]);
+    // printf("%f, %f, %f, %f, %f, %f, %f, %f\n", Cpanel[0], Cpanel[1], Cpanel[2], Cpanel[3], Cpanel[4], Cpanel[5], Cpanel[6], Cpanel[7]);
+    // printf("***************************************************************** \n");
+
+    // for(int i = 0; i < 8; i++)
+    // {
+    //   for(int j = 0; j < K; j++)
+    //   {
+    //     printf("%.1f,", Apanel[i*K + j]);
+    //   }
+    //   printf("\n");
+    // }
+    // printf("----------------------------------------------------------------- \n");
+    // for(int i = 0; i < K; i++)
+    // {
+    //   for(int j = 0; j < 12*bblocks; j++)
+    //   {
+    //     printf("%.1f,", Bpanel[i*12*bblocks + j]);
+    //   }
+    //   printf("\n");
+    // }
+    // printf("----------------------------------------------------------------- \n");
+
     const float *a_ptr = Apanel;
     float *c_ptr = Cpanel;
 

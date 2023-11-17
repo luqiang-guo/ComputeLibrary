@@ -1,0 +1,1 @@
+scons Werror=1 -j8 debug=1 neon=1 opencl=0 os=linux arch=armv8a openmp=0

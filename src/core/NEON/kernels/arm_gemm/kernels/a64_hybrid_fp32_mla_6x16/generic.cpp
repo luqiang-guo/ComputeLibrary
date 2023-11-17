@@ -37,6 +37,8 @@ void a64_hybrid_fp32_mla_6x16 (
     const float *bias, Activation act, bool accumulate
 )
 {
+
+    printf("%f, %f, %f, %f, %f, %f, %f, %f\n", B_ptr[0], B_ptr[1], B_ptr[2], B_ptr[3], B_ptr[4], B_ptr[5], B_ptr[6], B_ptr[7]);
     struct KernelArgs {
         float maxval = static_cast<float>(std::numeric_limits<float>::infinity());
         float minval = - static_cast<float>(std::numeric_limits<float>::infinity());
